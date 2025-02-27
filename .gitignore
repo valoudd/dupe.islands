@@ -1,41 +1,63 @@
-# Compiled Lua sources
-luac.out
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
+local Window = Rayfield:CreateWindow({
+   Name = "Island Dupe",
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   LoadingTitle = "Island Dupe",
+   LoadingSubtitle = "TryToDupeIsland",
+   Theme = "Amethyst", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
-# Object files
-*.o
-*.os
-*.ko
-*.obj
-*.elf
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = true, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
 
-# Precompiled Headers
-*.gch
-*.pch
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Islande dup"
+   },
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-*.def
-*.exp
+   Discord = {
+      Enabled = true, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+      RememberJoins = false -- Set this to false to make them join the discord every time they load it up
+   },
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Island Dupe",
+      Subtitle = "Key System",
+      Note = "go buy a key on the discord server // lien discord", -- Use this to tell the user how to get a key
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"test","sVk37avOzdN99YT9MTW","j0QSKkRSngpJ8aNzEmr","czY4vhYTvEEwX","3NqOynmgI2BgnQVZC3jd","SW3lrGih7VDZvgQA0JxU6qFGunvBZ","kSt868MhmVjc4vnf0UcWkBX","UP2FfzJvOYGCG5m5EIR","jBm2waGxR6kPIbkNC8Z","CZkdgIlr7jdms2Mbt44Nfu2F62","tTnsNAsHSUJxNs89FAO1592","cFu4SVgSNZBUQDSg5C","UjpdVdogJgo5t7acZ09Tl5FyCICNVK","uFLwpjDprlTa1vql3LK1MQc","EW8zj6BYjFEYh5QKq3du2BSx4Bfci","gncgSZQMPvcv0diX","ahRDqQSqOEup","rAMhfqoQ5VcLoieLqAMnDgUK0nQnC0","vyxRT0asBi6k","gSL1AfSVAh4jCb0ohXAlB4B","YWIvIoICPVUyGesVfh1","UUjHAesOKpkXDsuvYl","WJGCgyxSXl","k331Bj05Hz6lhkcOfIPU","ZXT2DG1rmlR7GTfeJEC","a16sohQ1o6YOFkbYFDVC4","vUkNRo9TfO1NLOKiorZwwOyFx","6qDXvSPprs6ONoTZ","X0WiAdqGubStSAHcdtrX","OzQkw4HbVn3q5YygsYAf0PR","lfYO7LcPwb4zotuBnj","xyBCW7T6C9yQzsDkLOS","GgZsQMEV6V1Ccnl2kzsUatlj","GX7hoZH5jXfZ5Vi2X7yEH","VgBOypThphhVbtYJNgdrqjptvC","AFL7clWL0yIF6DGgmPlPZ5L1gb","6UhZErWT3whkK36rIpCdsLLbXcDj","nEv9QmmnQKZypb","rzAD0iad9AP","ngzXHB1jKFjdj448U69nOxa3mjW8","6nGlznMn5TmavOgrDFRhD","tO8F4itL2bLuRe3OpEvk1","dEt1Tqe6JX","mK8FafUUlb7Gq9","VVlPCMc3UZv38RWTECcH0JR3qFHc","f7npVxwbszyrZx2B1zJV7hNcoMm8","7msKy4D1LwvUdnV00iEpIGnQt","UOqZFHv4iMi1VQOwZppC5LpbJH","qY9RtVqHnhNH760a","LSR0qWlbCC","hhjaPak52m7bcvxYH13","OlC6FEUgJYdvEmYErkX0","W4Gu22BENQPCb0GRwrOl5","ntaQKo3v2I6ehQ","M97Nix7qddzWiqB","yKKue2VCuzQpNIlyeYKEGv","OfDoGtBCMLxQ","kbC2MvjPBVBRJIsmOWhklmN","nXAft04XZoHsxoyQL1f26d2x","xIoNX7cRsktx1TU18tnZDRaEQXIw","iR9iAKwgrXzd3F3k","OFz74Z4fYu","Va5YOUHQEDMEdNI8VJa8z2eL","qzS3RFXobdltCeeQCOvGaT9Gx","yv5tq3FFYG1l60drDGX","mEJUOkJ1aBfKRcp6SmG8UVGxW","0WbpuzzuB4","xm4fdM0eD8O","ong0GXoxw0DmSdTnZpq1Hg","TuCfjmXfpIAdcmrjKGmvJ0dlZs","rYQ3FPuWcIB","S4eYL5dtP4FWwvPUpKxBq","YTZH4xN9rUw","ntYDpoCP752vENfb8KjDOm1GwwQW","4wBG5AFHrVigUKuxA9c","dCZ2iXWOVG","hOWrjVubc3mr62Y4","BwQKhg5ub7Mekj1MspYKqy0pxAoJRR","DoKK6BOlhyDZAaO8Ve2","PuUsWR7OAj5mG7C46Aarawp","aze05vC5nStwfA","INLFtMn9gn73m8W","QciF0fk6aFUSXSJnkrT0nA","ExQql4HafbHK0TwlZLGdbI6NXdT","vSipEaJnKEg","6zeO3KpjSGsaXsvd6tHSRdlmjb3","zGvMglknyE","9mq4qLb81vXthNW298BB9hDlz9b","KSySdHJbL3LA0Zacmdi","4bKsnxe31YPpeDw9pPbnJ7a","574WvPuj4XMsad7YVCVgEqh4s","gHPwbjV9Wug","M51lSQ9HnD4u484","SVMAY48j5go0MO","YmWXI2d12WHH","zfrfQ5UWNoIpuIhxgMqnuMMQJ","eXUNMVlnGygH9kPD2","KLlrWdUYwADiHOdO1TrsZ","a9GfUORqmYSGEd2FurhccZ5nAS","tAFBazYyHsdLSquz50ruYenZ","3mLIVqiPyYXBA3XKgncVRg6","wGjCin68jyzQ4","fiKqd1Tp5CXSxD","FkXmknM9Vo","ZA5ZjaLUBcKdjAybGeFGPn","t9RC60MUoosXlVzynUARpGJ","r7TJmp6A6HNBmvfvFBTerFQ","1wK2bqIYF2MDjvDnb1inYlxcjF","2EqNAoeicWGE2HJEmXT5b1J5HI","7mtGB0xfk4FDfajiRZv8ZY3Wulq","pACJnodTlug","jd771sjC5rY","SIHDdXeGFhmJ5IBpxGlVQs","wCUcYUxwad9Vy7MKuLo2fHVxj685r","T7roNk3PF0aXRw4WEwdcGkVLkG","lQ72ipqvnaw7","xZEXLbdL2DFTfqLTLc9sK6","aiiaRsXcqmv5X0I6zbAJ","3ViwJZfe9Him","9kMKler5RGV104G2","LRWFbEdvaH","sealHwSufyxB1BmQ9BPtvNAhYiR4","IkuQJffxzoW2noFNi7RvYe3X5","jF51R1mRADwr","WGNLIzJnEjI12fOzt","x3zQdj0LqaKh8H","K9MZBajOvzhspaRfnOIv","cZaD2qw4vy","DHXwZ1lWQH","dad2qiYvgP"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+local MainTab = Window:CreateTab("Main", nil)
 
+local DupeTab = Window:CreateTab("Dupe", nil) -- Title, Image
+local Button = DupeTab:CreateButton({
+   Name = "Dupe",
+   Callback = function()
+   local args = {}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rbxts_include", 9e9):WaitForChild("node_modules", 9e9):WaitForChild("@rbxts", 9e9):WaitForChild("net", 9e9):WaitForChild("out", 9e9):WaitForChild("_NetManaged", 9e9):WaitForChild("client_request_35", 9e9):InvokeServer(unpack(args))
+local args = {}
+
+game:GetService("ReplicatedStorage"):WaitForChild("rbxts_include", 9e9):WaitForChild("node_modules", 9e9):WaitForChild("@rbxts", 9e9):WaitForChild("net", 9e9):WaitForChild("out", 9e9):WaitForChild("_NetManaged", 9e9):WaitForChild("RedeemAnniversary", 9e9):FireServer(unpack(args))
+   end,
+})
+
+local Slider = DupeTab:CreateSlider({
+   Name = "Number of items",
+   Range = {0, 1250},
+   Increment = 10,
+   Suffix = "",
+   CurrentValue = 10,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   -- The function that takes place when the slider changes
+   game.dad = (value)-- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
