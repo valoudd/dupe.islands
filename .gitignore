@@ -1,76 +1,78 @@
+--loadstring(game:HttpGet('https://raw.githubusercontent.com/valoudd/dupe.islands/refs/heads/main/.gitignore'))()
+
 -- Fonction de décodage Base64
 local function decodeBase64(data)
-    local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/' 
-    data = string.gsub(data, '[^'..b..'=]', '')
-    return (data:gsub('.', function(x) 
-        if (x == '=') then return '' end 
-        local r,f='',(b:find(x)-1) 
-        for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end 
-        return r 
-    end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) 
-        if (#x ~= 8) then return '' end 
-        local c=0 
-        for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end 
-        return string.char(c) 
-    end))
+   local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/' 
+   data = string.gsub(data, '[^'..b..'=]', '')
+   return (data:gsub('.', function(x) 
+       if (x == '=') then return '' end 
+       local r,f='',(b:find(x)-1) 
+       for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end 
+       return r 
+   end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) 
+       if (#x ~= 8) then return '' end 
+       local c=0 
+       for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end 
+       return string.char(c) 
+   end))
 end
 
 -- Liste des clés encodées en Base64 avec commentaires pour les clés non encodées
 local encodedKeys = {
-   "dGVzdA==", -- test
-   "c1ZrMzdhdk96ZE45OVlUOU1UVw==", -- sVk37avOzdN99YT9MTW
-   "ajBRU0trUlNuZ3BKOGFOekVtcg==", -- j0QSKkRSngpJ8aNzEmr
-   "Y3pZNHZoWVR2RUV3WA==", -- czY4vhYTvEEwX
-   "M05xT3lubWdJMkJnblFWWkMzamQ=", -- 3NqOynmgI2BgnQVZC3jd
-   "U1czbHJHaWg3VkRadmdRQTBKeFU2cUZHdW52Qlo=", -- SW3lrGih7VDZvgQA0JxU6qFGunvBZ
-   "a1N0ODY4TWhtVmpjNHZuZjBVY1drQlg=", -- kSt868MhmVjc4vnf0UcWkBX
-   "VVAyRmZ6SnZPWUdDRzVtNUVJUg==", -- UP2FfzJvOYGCG5m5EIR
-   "akJtMndhR3hSNmtQSWJrTkM4Wg==", -- jBm2waGxR6kPIbkNC8Z
-   "Q1prZGdJbHI3amRtczJNYnQ0NE5mdTJGNjI=", -- CZkdgIlr7jdms2Mbt44Nfu2F62
-   "ZGxBWkF0TmtkQ2RtNmpubDNaU3FmWg==", -- dlAZAtNkdCdm6jnl3ZSqfZ
+  "dGVzdA==", -- test
+  "c1ZrMzdhdk96ZE45OVlUOU1UVw==",
+  "ajBRU0trUlNuZ3BKOGFOekVtcg==",
+  "Y3pZNHZoWVR2RUV3WA==",
+  "M05xT3lubWdJMkJnblFWWkMzamQ=",
+  "U1czbHJHaWg3VkRadmdRQTBKeFU2cUZHdW52Qlo=",
+  "a1N0ODY4TWhtVmpjNHZuZjBVY1drQlg=",
+  "VVAyRmZ6SnZPWUdDRzVtNUVJUg==",
+  "akJtMndhR3hSNmtQSWJrTkM4Wg==",
+  "Q1prZGdJbHI3amRtczJNYnQ0NE5mdTJGNjI=",
+  "ZGxBWkF0TmtkQ2RtNmpubDNaU3FmWg==",
 }
 
 -- Décoder les clés avant de les utiliser
 local decodedKeys = {}
 for _, key in pairs(encodedKeys) do
-   table.insert(decodedKeys, decodeBase64(key))
+  table.insert(decodedKeys, decodeBase64(key))
 end
 
 -- Chargement de Rayfield
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "Island Dupe",
-   Icon = 0,
-   LoadingTitle = "Island Dupe",
-   LoadingSubtitle = "TryToDupeIsland",
-   Theme = "Default",
+  Name = "Island Dupe",
+  Icon = 0,
+  LoadingTitle = "Island Dupe",
+  LoadingSubtitle = "TryToDupeIsland",
+  Theme = "Default",
 
-   DisableRayfieldPrompts = true,
-   DisableBuildWarnings = true,
+  DisableRayfieldPrompts = true,
+  DisableBuildWarnings = true,
 
-   ConfigurationSaving = {
-      Enabled = false,
-      FolderName = nil,
-      FileName = "Islande dup"
-   },
+  ConfigurationSaving = {
+     Enabled = false,
+     FolderName = nil,
+     FileName = "Islande dup"
+  },
 
-   Discord = {
-      Enabled = true,
-      Invite = "noinvitelink",
-      RememberJoins = false
-   },
+  Discord = {
+     Enabled = true,
+     Invite = "noinvitelink",
+     RememberJoins = false
+  },
 
-   KeySystem = true,
-   KeySettings = {
-      Title = "Island Dupe",
-      Subtitle = "Key System",
-      Note = "go buy a key on the discord server // lien discord",
-      FileName = "Key",
-      SaveKey = false,
-      GrabKeyFromSite = false,
-      Key = decodedKeys -- Utilisation des clés décodées
-   }
+  KeySystem = true,
+  KeySettings = {
+     Title = "Island Dupe",
+     Subtitle = "Key System",
+     Note = "go buy a key on the discord server // lien discord",
+     FileName = "Key",
+     SaveKey = false,
+     GrabKeyFromSite = false,
+     Key = decodedKeys -- Utilisation des clés décodées
+  }
 })
 
 local MainTab = Window:CreateTab("🚧👷 Main 👷🚧", nil)
@@ -78,31 +80,36 @@ local Section = MainTab:CreateSection("🚧👷 Coming Soon 👷🚧")
 
 local DupeTab = Window:CreateTab("💲 Dupe & Free Items💲", nil)
 local Button = DupeTab:CreateButton({
-   Name = "Get Free Anniversary Items",
-   Callback = function()
-      Rayfield:Notify({
-         Title = "✅ Done ✅",
-         Content = "You have your item, change the account or the profile to get more",
-         Duration = 6.5,
-         Image = 4483362458,
-      })
-      local args = {}
+  Name = "Get Free Anniversary Items",
+  Callback = function()
+     Rayfield:Notify({
+        Title = "✅ Done ✅",
+        Content = "You have your item, change the account or the profile to get more",
+        Duration = 6.5,
+        Image = 4483362458,
+     })
+     local args = {}
 
 game:GetService("ReplicatedStorage"):WaitForChild("rbxts_include", 9e9):WaitForChild("node_modules", 9e9):WaitForChild("@rbxts", 9e9):WaitForChild("net", 9e9):WaitForChild("out", 9e9):WaitForChild("_NetManaged", 9e9):WaitForChild("client_request_35", 9e9):InvokeServer(unpack(args))
 local args = {}
 
 game:GetService("ReplicatedStorage"):WaitForChild("rbxts_include", 9e9):WaitForChild("node_modules", 9e9):WaitForChild("@rbxts", 9e9):WaitForChild("net", 9e9):WaitForChild("out", 9e9):WaitForChild("_NetManaged", 9e9):WaitForChild("RedeemAnniversary", 9e9):FireServer(unpack(args))
 
-   end,
+  end,
 })
+
 local Button = DupeTab:CreateButton({
-   Name = "Dupe",
-   Callback = function()
-      Rayfield:Notify({
-         Title = "🤷‍♂️​ Coming Soon 🤷‍♂️​",
-         Content = "We are sorry this fonction is coming soon. We are working on it.",
-         Duration = 6.5,
-         Image = 4483362458,
-      })
-   end,
+  Name = "Dupe",
+  Callback = function()
+     Rayfield:Notify({
+        Title = "🤷‍♂️​ Coming Soon 🤷‍♂️​",
+        Content = "We are sorry this fonction is coming soon. We are working on it.",
+        Duration = 6.5,
+        Image = 4483362458,
+     })
+  end,
 })
+
+
+
+
