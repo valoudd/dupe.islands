@@ -71,7 +71,7 @@ local Window = Rayfield:CreateWindow({
 })
 
 local MainTab = Window:CreateTab("🚧👷 Main 👷🚧", nil)
-local Section = MainTab:CreateSection("🚧👷 Coming Soon 👷🚧")
+local Section = MainTab:CreateSection("🚧👷 More Coming Soon 👷🚧")
 local Button = MainTab:CreateButton({
    Name = "Main script",
    Callback = function()
