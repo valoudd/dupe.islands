@@ -1,3 +1,6 @@
+--loadstring(game:HttpGet('https://raw.githubusercontent.com/valoudd/dupe.islands/refs/heads/main/.gitignore'))()
+
+-- Fonction de décodage Base64
 local function decodeBase64(data)
    local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/' 
    data = string.gsub(data, '[^'..b..'=]', '')
@@ -14,7 +17,9 @@ local function decodeBase64(data)
    end))
 end
 
+-- Liste des clés encodées en Base64 avec commentaires pour les clés non encodées
 local encodedKeys = {
+  "dGVzdA==", -- test
   "c1ZrMzdhdk96ZE45OVlUOU1UVw==",
   "ajBRU0trUlNuZ3BKOGFOekVtcg==",
   "Y3pZNHZoWVR2RUV3WA==",
@@ -27,11 +32,13 @@ local encodedKeys = {
   "ZGxBWkF0TmtkQ2RtNmpubDNaU3FmWg==",
 }
 
+-- Décoder les clés avant de les utiliser
 local decodedKeys = {}
 for _, key in pairs(encodedKeys) do
   table.insert(decodedKeys, decodeBase64(key))
 end
 
+-- Chargement de Rayfield
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
@@ -60,11 +67,11 @@ local Window = Rayfield:CreateWindow({
   KeySettings = {
      Title = "Island Dupe",
      Subtitle = "Key System",
-     Note = "go buy a key on the discord server // https://discord.gg/tPZKe8c3aT",
+     Note = "go buy a key on the discord server // lien discord",
      FileName = "Key",
      SaveKey = false,
      GrabKeyFromSite = false,
-     Key = decodedKeys
+     Key = decodedKeys -- Utilisation des clés décodées
   }
 })
 
@@ -10093,6 +10100,7 @@ game.Players.LocalPlayer:Kick("SCRIPT IS BROKE! WE ARE SORRY. Reload the script 
 
 
 	-- end
+	end,
  })
 
 local DupeTab = Window:CreateTab("💲 Dupe & Free Items💲", nil)
