@@ -10123,7 +10123,7 @@ local Button = DupeTab:CreateButton({
   Callback = function()
      Rayfield:Notify({
         Title = "🤷‍♂️​ Coming Soon 🤷‍♂️​",
-        Content = "We are sorry this fonction is coming soon. We are working on it.",
+        Content = "We are sorry this fonction is coming soon. We are working on it. Or you buy the first option that don't have the dupe.",
         Duration = 6.5,
         Image = 4483362458,
      })
